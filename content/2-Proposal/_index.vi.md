@@ -52,14 +52,7 @@ Aurora Time áp dụng kiến trúc **AWS Serverless** cho phép mở rộng lin
 Các yêu cầu được tiếp nhận qua **Amazon API Gateway**, xử lý bởi **AWS Lambda**, lưu trữ trong **DynamoDB**.  
 **EventBridge** lên lịch và kích hoạt nhắc nhở, **AWS Amplify** cung cấp giao diện, bảo mật bởi **Cognito**.
 
-<div style="text-align:center;">
-  <img src="/images/2-Proposal/aurora-architecture.jpeg"
-       alt="Kiến trúc AWS Serverless của Aurora Time"
-       width="850"
-       style="border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.25); margin-top:10px;" />
-
-
-</div>
+![Kiến trúc AWS Serverless của Aurora Time](/images/2-Proposal/aurora-architecture.jpeg)
 
 ---
 
