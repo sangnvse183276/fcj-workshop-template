@@ -16,13 +16,33 @@ pre: " <b> 1.5. </b> "
 * Understand basic AWS services, how to use the console & CLI.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+Dưới đây là **Week 5** cho module *Using AWS Storage Gateway* (4 video bạn gửi), theo đúng format các tuần trước. Nội dung tập trung vào S3 bucket, EC2 host cho Storage Gateway, cấu hình Storage Gateway và test truy cập.
+
+***
+
+## Week 5 – Worklog (AWS Storage Gateway)
+Dưới đây là **Week 5** cho module *Using AWS Storage Gateway* (4 video bạn gửi), theo đúng format các tuần trước. Nội dung tập trung vào S3 bucket, EC2 host cho Storage Gateway, cấu hình Storage Gateway và test truy cập.
+
+***
+
+## Week 5 – Worklog (AWS Storage Gateway)
+Dưới đây là **Week 5** cho module *Using AWS Storage Gateway* (4 video bạn gửi), theo đúng format các tuần trước. Nội dung tập trung vào S3 bucket, EC2 host cho Storage Gateway, cấu hình Storage Gateway và test truy cập.
+
+***
+
+## Week 5 – Worklog (AWS Storage Gateway)
+
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ----- | ---------- | ---------------- | ------------------ |
+| MON | - Using AWS Storage Gateway: review the lab overview and main use cases (file/volume/tape gateway, hybrid storage, backup and archiving).[1] <br>- Understand the overall lab architecture (on‑premises VM/EC2 acting as gateway, S3 as backend storage). | 13/10/2025 | 13/10/2025 | https://www.youtube.com/watch?v=Je2jPk7HhLQ&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=88|
+| TUE | – Create S3 Bucket” and create the S3 bucket required for the Storage Gateway lab.[2] <br>- Configure basic settings: bucket name, region, encryption (if required), and relevant tags for the lab. | 14/10/2025 | 14/10/2025 | https://www.youtube.com/watch?v=3vSrTeWroSs&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=86[2]|
+| WED | – Create EC2 for Storage Gateway” and provision the EC2 instance that will run the Storage Gateway.[3] <br>- Configure networking and Security Groups so the EC2 instance can reach S3 and be managed securely (only required ports allowed). | 15/10/2025 | 15/10/2025 | https://www.youtube.com/watch?v=xVrhpe8OpVU&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=87 |
+| THU |– Configure AWS Storage Gateway” (index 88) and activate the gateway using the S3 bucket created earlier.[1] <br>- Configure the appropriate gateway type (for example File or Volume Gateway) according to the lab guide and verify that the gateway status is active. | 16/10/2025 | 16/10/2025 | https://www.youtube.com/watch?v=Je2jPk7HhLQ&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=88[1] |
+| FRI |  Test Storage Gateway / Access Data” (index 89) and perform the lab tests (mount share or volume, read/write files, verify data in S3).[1] <br>- Write a short internal note summarizing “How AWS Storage Gateway integrates on‑premises workloads with S3 and when to use it in real projects”. | 17/10/2025 | 17/10/2025 | https://www.youtube.com/watch?v=3Zp9GSMO-VI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=89 |
+
+[1](https://awsstudygroup.com)
+[2](https://www.youtube.com/watch?v=3vSrTeWroSs&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=86)
+[3](https://www.youtube.com/watch?v=xVrhpe8OpVU&list=P)
 
 
 ### Week 5 Achievements:
