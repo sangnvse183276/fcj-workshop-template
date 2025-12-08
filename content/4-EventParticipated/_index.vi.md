@@ -44,3 +44,13 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 
+---
+
+### [Event 3](4.3-Event3/)  
+&emsp;**Tên sự kiện:** AWS Cloud Mastery Series #3 - Chuyên sâu về Trụ cột Bảo mật  
+
+&emsp;**Thời gian:** 09:00 ngày 01/12/2025  
+
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Bến Nghé, Quận 1, TP. Hồ Chí Minh  
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự

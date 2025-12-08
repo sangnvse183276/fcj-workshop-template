@@ -9,13 +9,13 @@ chapter: false
 # Internship Report
 
 ### Student Information:
-&emsp; **Full Name:** Do Trung Hieu
+&emsp; **Full Name:** Nguyen Van Sang
 
-&emsp; **Phone Number:** 0382042726 
+&emsp; **Phone Number:** 0983135379
 
-&emsp; **Email:** dotrunghieund9.9@gmail.com
+&emsp; **Email:** sangnvse183276@fpt.edu.vn
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University
 
 &emsp; **Major:** Information Technology
 
@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From /08/2025 to 12/11/2025
 
 ![Your profile picture](/images/OSK.jpg)
 

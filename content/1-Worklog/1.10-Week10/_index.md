@@ -16,14 +16,13 @@ pre: " <b> 1.10. </b> "
 * Understand basic AWS services, how to use the console & CLI.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task                                                                                                                                                                                                                           | Start Date | Completion Date | Reference Material                                           |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ------------------------------------------------------------ |
+| MON | - Refine business requirements and user stories for Aurora Time (scheduling, reminders, authentication, email notifications).- Define non‑functional requirements: scalability, availability, latency, and cost constraints.   | 17/11/2025 | 17/11/2025      | Proposal – Executive Summary, Problem Statement              |
+| TUE | - Design high-level serverless architecture: API Gateway, Lambda, DynamoDB, EventBridge, SES, Cognito, Amplify, S3/CloudFront.- Draw/update the architecture diagram based on the proposal.                                    | 18/11/2025 | 18/11/2025      | Proposal – Solution Architecture & AWS Services Used         |
+| WED | - DynamoDB data modeling: design tables, partition key and sort key for users, events, schedules, and reminders.- Document access patterns (create/update/delete event, list by date/user, query upcoming reminders).          | 19/11/2025 | 19/11/2025      | Proposal – Technical Implementation Plan (DynamoDB modeling) |
+| THU | Go to event| 20/11/2025 | 20/11/2025      | |
+| FRI | - Draft security & authentication design: Cognito user pools, auth flow, JWT with API Gateway authorizer, basic authorization rules.- Write "Architecture Design v1" (short document) and share with mentor/team for feedback. | 21/11/2025 | 21/11/2025      | Proposal – Cognito, Security, ROI & Risks sections           |
 
 ### Week 10 Achievements:
 

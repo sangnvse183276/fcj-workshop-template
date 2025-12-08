@@ -16,15 +16,13 @@ pre: " <b> 1.10. </b> "
 * Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
+| Ngày    | Nhiệm vụ                                                                                                                                                                                                                               | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                           |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------------------------------------------------ |
+| Thứ Hai | - Tinh chỉnh yêu cầu nghiệp vụ và user story cho Aurora Time (lịch biểu, nhắc nhở, xác thực, thông báo email). - Xác định các yêu cầu phi chức năng: khả năng mở rộng, tính sẵn sàng, độ trễ và ràng buộc chi phí.                     | 17/11/2025   | 17/11/2025      | Proposal – Executive Summary, Problem Statement              |
+| Thứ Ba  | - Thiết kế kiến trúc serverless mức cao: API Gateway, Lambda, DynamoDB, EventBridge, SES, Cognito, Amplify, S3/CloudFront. - Vẽ/cập nhật sơ đồ kiến trúc dựa trên proposal.                                                            | 18/11/2025   | 18/11/2025      | Proposal – Solution Architecture & AWS Services Used         |
+| Thứ Tư  | - Mô hình dữ liệu DynamoDB: thiết kế bảng, partition key và sort key cho users, events, schedules và reminders. - Ghi lại các pattern truy cập (tạo/cập nhật/xóa event, liệt kê theo ngày/người dùng, truy vấn các reminders sắp tới). | 19/11/2025   | 19/11/2025      | Proposal – Technical Implementation Plan (DynamoDB modeling) |
+| Thứ Năm | - Tham gia sự kiện.                                                                                                                                                                                                                    | 20/11/2025   | 20/11/2025      |                                                              |
+| Thứ Sáu | - Phác thảo thiết kế bảo mật & xác thực: Cognito user pool, luồng xác thực, JWT với API Gateway authorizer, các rule phân quyền cơ bản. - Viết “Architecture Design v1” (tài liệu ngắn) và chia sẻ với mentor/team để nhận phản hồi.   | 21/11/2025   | 21/11/2025      | Proposal – Cognito, Security, ROI & Risks sections           |
 ### Kết quả đạt được tuần 10:
 
 * Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
