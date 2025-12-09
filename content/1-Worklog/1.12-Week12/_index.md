@@ -14,15 +14,15 @@ pre: " <b> 1.12. </b> "
 * Understand basic AWS services, how to use the console & CLI.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ----- | ---------- | ---------------- | ------------------ |
-| MON | - Attend an AWS event . | 01/12/2025 | 01/12/2025 |  |
-| TUE | - Tune Lambda and DynamoDB: adjust memory, timeout, and concurrency; choose on‑demand vs provisioned RCU/WCU for tables.<br>- Enable CloudWatch metrics and alarms for Lambda errors/throttling and DynamoDB throttling. | 02/11/2025 | 02/11/2025 | Proposal – Technical Implementation Plan (System Optimization)[1] |
-| WED | - Harden security: refine IAM roles with least privilege for Lambda, EventBridge, SES, and DynamoDB.<br>- Secure API Gateway (Cognito authorizer, throttling) and set AWS Budgets alerts for the project account. | 03/11/2025 | 03/11/2025 | Proposal – Risks & Mitigation (cost overrun, failures)[1] |
-| THU | - Connect frontend (Amplify‑hosted app) to backend APIs: implement pages for login/sign‑up, schedule view, create/edit events, and reminder settings.<br>- Wire frontend to Cognito and API Gateway endpoints and test basic user flows. | 04/11/2025 | 04/11/2025 | Proposal – AWS Amplify, Key Features & Problem Statement |
-| FRI | - Run integrated end‑to‑end testing: user auth → create/update/delete events → scheduled reminder emails → view schedules across devices/browsers.<br>- Prepare final deliverables (architecture diagram, cost report, demo script, screenshots) and update worklog with "Lessons Learned & Next Steps". | 06/11/2025 | 07/11/2025 | Proposal – Expected Outcomes & ROI; AWS Well-Architected best practices[1] |
+| Day | Task | Start Date | Completion Date | Reference |
+|-----|------|-------------|-----------------|-----------|
+| **Mon** | - Perform a full review of all features: authentication, event CRUD, reminders, scheduled emails.<br>- Check CloudWatch logs for remaining errors and verify system correctness. | 01/12/2025 | 01/12/2025 | Project Checklist |
+| **Tue** | - Execute **End-to-End Testing**: sign-up → sign-in → create/edit/delete events → reminder scheduling → email delivery → cross-device validation.<br>- Identify issues and fix remaining bugs. | 02/12/2025 | 02/12/2025 | Test Cases – Aurora Time |
+| **Wed** | - Polish final UI/UX of the web application: layout, spacing, responsiveness, validation rules, error messages.<br>- Capture final screenshots for the slide deck and final report. | 03/12/2025 | 03/12/2025 | UI Review Notes |
+| **Thu** | - Prepare the **Final Presentation Slide Deck**: problem statement, system architecture, workflows, demo flow, cost estimation, benefits, lessons learned.<br>- Write the **Demo Script** to ensure a smooth and consistent presentation. | 04/12/2025 | 04/12/2025 | Presentation Materials |
+| **Fri** | - Re-run system validation using the final checklist.<br>- Complete all deliverables: Final Report, Architecture Diagram, Cost Estimation Sheet, Demo Video, and supporting materials.<br>- Document **Lessons Learned & Next Steps**. | 05/12/2025 | 05/12/2025 | Final Deliverables |
 
-[1](https://aws.amazon.com/architecture/well-architected/)
+---
 
 ### Week 12 Achievements:
 

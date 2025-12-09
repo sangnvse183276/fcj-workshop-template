@@ -12,14 +12,15 @@ pre: " <b> 1.12 </b> "
 * Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
 
 ### Các công việc cần triển khai trong tuần này:
-| Ngày    | Nhiệm vụ                                                                                                                                                                                                                                                                                            | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                 |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ---------------------------------------------------------------------------------- |
-| Thứ Hai |  Tham gia một sự kiện AWS                             | 01/12/2025   | 01/12/2025      |  |
-| Thứ Ba  | - Tinh chỉnh Lambda và DynamoDB: điều chỉnh memory, timeout và concurrency; chọn giữa on‑demand và provisioned RCU/WCU cho các bảng.- Bật CloudWatch metrics và alarm cho lỗi/throttling của Lambda và throttling của DynamoDB.                                                                     | 02/12/2025   | 02/12/2025      | Proposal – Technical Implementation Plan (System Optimization)aws.amazon​          |
-| Thứ Tư  | - Tăng cường bảo mật: tinh chỉnh IAM role với nguyên tắc least privilege cho Lambda, EventBridge, SES và DynamoDB.- Bảo vệ API Gateway (Cognito authorizer, throttling) và thiết lập AWS Budgets alerts cho account dự án.                                                                          | 03/12/2025   | 03/12/2025      | Proposal – Risks & Mitigation (cost overrun, failures)aws.amazon​                  |
-| Thứ Năm | - Kết nối frontend (ứng dụng host trên Amplify) với backend API: triển khai các trang login/sign‑up, lịch biểu, tạo/sửa event và thiết lập reminder.- Kết nối frontend với Cognito và các endpoint API Gateway, kiểm thử các luồng người dùng cơ bản.                                               | 04/12/2025   | 04/12/2025      | Proposal – AWS Amplify, Key Features & Problem Statement                           |
-| Thứ Sáu | - Chạy test tích hợp end‑to‑end: user auth → create/update/delete events → email nhắc việc theo lịch → xem lịch trên nhiều thiết bị/trình duyệt.- Chuẩn bị deliverable cuối (sơ đồ kiến trúc, báo cáo chi phí, demo script, screenshot) và cập nhật worklog với mục “Lessons Learned & Next Steps”. | 05/12/2025   | 05/12/2025      | Proposal – Expected Outcomes & ROI; AWS Well-Architected best practicesaws.amazon​ |
+| Day | Task | Start Date | Completion Date | Reference |
+|-----|------|-------------|-----------------|-----------|
+| **Mon** | - Tổng rà soát toàn bộ chức năng: Authentication, Event CRUD, Reminder Scheduling, Email Notifications.<br>- Kiểm tra logs CloudWatch để phát hiện lỗi còn sót. | 01/12/2025 | 01/12/2025 | Project Checklist |
+| **Tue** | - Thực hiện **End-to-End Testing**: đăng ký → đăng nhập → tạo/sửa/xóa event → trigger reminder → nhận email → đồng bộ dữ liệu trên nhiều thiết bị.<br>- Ghi lỗi, fix nhanh các bug còn tồn tại. | 02/12/2025 | 02/12/2025 | Test Cases – Aurora Time |
+| **Wed** | - Chuẩn hóa UI/UX trên bản web cuối: bố cục, spacing, responsive, xác nhận form, error messages.<br>- Chụp ảnh giao diện và hệ thống để đưa vào slide và báo cáo. | 03/12/2025 | 03/12/2025 | UI Review Notes |
+| **Thu** | - Chuẩn bị **Final Slide Deck**: mô tả problem, kiến trúc serverless, workflow chính, demo flow, cost, lợi ích và lessons learned.<br>- Viết **Demo Script** để đảm bảo trình bày nhất quán. | 04/12/2025 | 04/12/2025 | Presentation Materials |
+| **Fri** | - Kiểm thử lại toàn hệ thống một lần nữa theo checklist trước khi báo cáo.<br>- Hoàn tất **Final Report**, **Architecture Diagram**, **Cost Estimation**, video demo và tài liệu bàn giao.<br>- Ghi **Lessons Learned & Next Steps** vào worklog. | 05/12/2025 | 05/12/2025 | Final Deliverables |
 
+---
 ### Kết quả đạt được tuần 12:
 
 * Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
