@@ -33,12 +33,14 @@ Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về t
 
 
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+-Trong toàn bộ kỳ thực tập, trải nghiệm hoặc thành tựu nào khiến bạn cảm thấy tự hào và hài lòng nhất?
+
+-Khoảnh khắc nào (dự án, nhiệm vụ, sự kiện) khiến bạn cảm thấy “mình thuộc về team này”? Vì sao?
+
+-Theo bạn, phần nào trong chương trình thực tập còn có thể tổ chức tốt hơn (onboarding, giao task, mentoring, feedback…)?
 
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
+-Bạn có đề xuất cụ thể nào để nâng cao trải nghiệm thực tập sinh (ví dụ thêm buổi chia sẻ, pair programming, review code, workshop kỹ năng mềm…)? 
 - Bạn có muốn tiếp tục chương trình này trong tương lai?
 - Góp ý khác (tự do chia sẻ):

@@ -35,13 +35,13 @@ The company provides an internship allowance and offers flexible working hours w
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+- Throughout your internship, which experience or achievement made you feel the most proud and satisfied?
+- Which moment (project, task, or event) made you feel that “I truly belong to this team”? Why? 
+-In your opinion, which parts of the internship program could be organized better (onboarding, task assignment, mentoring, feedback, etc.)? 
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
+- Do you have any specific suggestions to improve the internship experience (for example, more sharing sessions, pair programming, code reviews, or soft-skill workshops)? 
 - Would you like to continue this program in the future?  
 - Any other comments (free sharing):
