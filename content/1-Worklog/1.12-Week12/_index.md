@@ -16,9 +16,6 @@ pre: " <b> 1.12. </b> "
 * Understand basic AWS services, how to use the console & CLI.
 
 ### Tasks to be carried out this week:
-Dưới đây là **3 tuần** Aurora Time project theo đúng format Day/Task/Start Date/Completion Date/Reference Material:
-## Week 3 – Optimization, Frontend & Finalization
-
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ----- | ---------- | ---------------- | ------------------ |
 | MON | - Attend an AWS event . | 01/12/2025 | 01/12/2025 |  |
