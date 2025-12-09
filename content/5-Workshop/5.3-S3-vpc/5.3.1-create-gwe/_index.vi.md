@@ -1,40 +1,49 @@
 ---
-title : "Tạo một Gateway Endpoint"
-date :  "2025-09-09T19:53:52+07:00" 
+title : "Thiết kế & tạo bảng DynamoDB"
+date : "2025-09-09T19:53:52+07:00"
 weight : 1
 chapter : false
 pre : " <b> 5.3.1 </b> "
 ---
 
-1. Mở [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
-2. Trong thanh điều hướng, chọn **Endpoints**, click **Create Endpoint**:
+Trong phần này, bạn sẽ tạo bảng **DynamoDB** dùng để lưu trữ các sự kiện (events) của người dùng Aurora Time.  
+Bảng này là nền tảng cho toàn bộ chức năng tạo/lấy/sửa/xoá lịch và nhắc việc.
+
+1. Mở **DynamoDB console** trong region mà bạn triển khai Aurora Time.
+
+2. Ở thanh điều hướng bên trái, chọn **Tables**, sau đó click **Create table**.
 
 {{% notice note %}}
-Bạn sẽ thấy 6 điểm cuối VPC hiện có hỗ trợ AWS Systems Manager (SSM). Các điểm cuối này được Mẫu CloudFormation triển khai tự động cho workshop này.
+Aurora Time sử dụng kiến trúc serverless nên DynamoDB là lựa chọn phù hợp cho lưu trữ dữ liệu sự kiện với độ trễ thấp, khả năng mở rộng tự động và chi phí thấp.
 {{% /notice %}}
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
+![Tạo bảng DynamoDB](/images/aurora-time/dynamodb-create-table.png)
 
-3. Trong Create endpoint console:
-+ Đặt tên cho endpoint: s3-gwe
-+ Trong service category, chọn **aws services**
+3. Trong màn hình **Create table**:
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png)
+   + **Table name**: `AuroraTimeEvents`  
+   + **Partition key**: `userId` (Type: String) – dùng để phân vùng dữ liệu theo từng người dùng.  
+   + **Sort key**: `eventKey` (Type: String) – dùng để lưu giá trị dạng `eventId#yyyy-mm-dd`, giúp dễ truy vấn theo sự kiện và ngày.
 
-+ Trong **Services**, gõ "s3" trong hộp tìm kiếm và chọn dịch vụ với loại **gateway**
+![Khai báo key schema](/images/aurora-time/dynamodb-events-key-schema.png)
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/services.png)
+4. Ở phần **Table settings**:
 
-+ Đối với VPC, chọn **VPC Cloud** từ drop-down menu.
-+ Đối với Route tables, chọn bảng định tuyến mà đã liên kết với 2 subnets (lưu ý: đây không phải là bảng định tuyến chính cho VPC mà là bảng định tuyến thứ hai do CloudFormation tạo).
+   + Chọn **Use default settings** hoặc chỉnh sang **On‑demand capacity** (Recommended) để không phải tự tính RCU/WCU trong giai đoạn POC.
+   + Giữ nguyên các tuỳ chọn backup, encryption ở mức mặc định cho workshop.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
+![Cấu hình capacity](/images/aurora-time/dynamodb-events-capacity.png)
 
-+ Đối với Policy, để tùy chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
+5. Cuộn xuống cuối trang, click **Create table** và chờ đến khi trạng thái bảng là **Active**.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
+![Bảng AuroraTimeEvents đã được tạo](/images/aurora-time/dynamodb-events.png)
 
-+ Không thêm tag vào VPC endpoint.
-+ Click Create endpoint, click x sau khi nhận được thông báo tạo thành công.
+6. (Tuỳ chọn) Thêm một vài item mẫu để kiểm thử:
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)
+   + `userId`: `demo-user-1`  
+   + `eventKey`: `event-001#2025-09-10`  
+   + Các thuộc tính khác: `title`, `startTime`, `endTime`, `reminderOffset`, `status`, …
+
+![Thêm dữ liệu mẫu](/images/aurora-time/dynamodb-events-items.png)
+
+Bạn đã tạo xong bảng **AuroraTimeEvents**. Ở các bước tiếp theo, các Lambda function như `CreateEvent`, `ListEvents`, `UpdateEvent` và `DeleteEvent` sẽ sử dụng bảng này để thao tác dữ liệu lịch và nhắc việc cho từng người dùng.
