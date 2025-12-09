@@ -5,9 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 Unlock generative AI capabilities with DataRobot from AWS Marketplace
 by Shun Mao, Luke Shulman, and Nathaniel Daly on 20 DEC 2024 in Amazon Bedrock, Amazon Machine Learning, Amazon SageMaker, Amazon SageMaker Autopilot, Amazon Titan, AWS Marketplace, Generative AI, Intermediate (200) Permalink  Share

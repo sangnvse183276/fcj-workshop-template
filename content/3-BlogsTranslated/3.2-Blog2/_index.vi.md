@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 Những người vô gia cư có được nơi trú ẩn, chứng minh danh tính của họ bằng giải pháp Kiip do AWS cung cấp
 Tác giả:Noah Harlan and Jessie Metcalf
 Ngày đăng:03/11/2023

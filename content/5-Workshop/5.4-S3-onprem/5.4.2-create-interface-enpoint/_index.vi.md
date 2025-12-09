@@ -1,43 +1,53 @@
 ---
-title : "Tạo một S3 Interface endpoint"
+title : "Tạo luật EventBridge cho nhắc việc"
 date : "2025-09-09T19:53:52+07:00"
 weight : 2
 chapter : false
 pre : " <b> 5.4.2 </b> "
 ---
 
-Trong phần này, bạn sẽ tạo và kiểm tra Interface Endpoint  S3 bằng cách sử dụng môi trường truyền thống mô phỏng.
+Trong phần này, bạn sẽ tạo và kiểm thử **EventBridge rule/Scheduler** để kích hoạt Lambda gửi email nhắc việc cho người dùng Aurora Time.  
+Luật này sẽ chạy theo lịch (ví dụ vài phút một lần) và gọi hàm Lambda đọc các reminder sắp đến trong DynamoDB, sau đó gửi email qua SES.[web:254][web:289]
 
-1. Quay lại Amazon VPC menu. Trong thanh điều hướng bên trái, chọn Endpoints, sau đó click Create Endpoint.
+1. Mở **Amazon EventBridge console** trong region đã dùng cho Aurora Time.
 
-2. Trong Create endpoint console:
-+ Đặt tên interface endpoint
-+ Trong Service category, chọn **aws services** 
+2. Trong thanh điều hướng bên trái:
+   + Nếu bạn dùng **Scheduler**: chọn **Scheduler** → click **Create schedule**.  
+   + Nếu bạn dùng **Rules**: chọn **Rules** → click **Create rule**.
 
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
+![Chuẩn bị tạo rule EventBridge](/images/aurora-time/eventbridge-prepare.png)
 
-3.  Trong Search box, gõ S3 và nhấn Enter. Chọn endpoint có tên com.amazonaws.us-east-1.s3. Đảm bảo rằng cột Type có giá trị Interface.
+3. Ở phần cấu hình cơ bản:
 
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
+   + **Name**: `AuroraTime-ReminderSchedule`  
+   + **Description**: Lập lịch kích hoạt Lambda gửi email nhắc việc cho Aurora Time.  
+   + **Schedule pattern**:  
+     - Chọn **Recurring schedule**.  
+     - Ví dụ chọn `Rate` = **5 minutes** để trong môi trường lab, reminder được chạy thường xuyên cho dễ quan sát.
 
-4. Đối với VPC, chọn VPC Cloud từ drop-down.
-{{% notice warning %}}
-Đảm bảo rằng bạn chọn "VPC Cloud" và không phải "VPC On-prem"
-{{% /notice %}}
-+ Mở rộng **Additional settings** và đảm bảo rằng Enable DNS name *không* được chọn (sẽ sử dụng điều này trong phần tiếp theo của workshop)
+![Cấu hình lịch chạy](/images/aurora-time/eventbridge-schedule.png)
 
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
+4. Ở phần **Target**:
 
-5. Chọn 2 subnets trong AZs sau: us-east-1a and us-east-1b
+   + **Target type**: chọn **AWS service**.  
+   + **Target**: **Lambda function**.  
+   + **Function**: chọn hàm Lambda dùng để xử lý reminder, ví dụ: `AuroraTime-ScheduleReminder`.  
+   + **Execution role**: chọn IAM role đã tạo ở bước 5.4.1 (ví dụ `AuroraTimeReminderLambdaRole`), role này phải có quyền `lambda:InvokeFunction` (nếu dùng Scheduler) và quyền gửi email qua SES trong chính Lambda.[web:259][web:297]
 
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
+![Chọn Lambda target](/images/aurora-time/eventbridge-rule.png)
 
-6. Đối với Security group, chọn SGforS3Endpoint:
+5. (Tuỳ chọn) Ở phần **Input**, bạn có thể:
 
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
+   + Để **Constant (JSON text)** rỗng nếu Lambda tự tính thời gian reminder cần xử lý.  
+   + Hoặc truyền một payload đơn giản, ví dụ:
+{
+"source": "eventbridge-scheduler",
+"task": "process-upcoming-reminders"
+}
 
-7. Giữ default policy - full access và click Create endpoint
+6. Kiểm tra lại toàn bộ cấu hình rồi click **Create schedule** (hoặc **Create rule** nếu dùng Rules).  
+Sau khi tạo xong, trạng thái schedule/rule sẽ là **Enabled** và bắt đầu gọi Lambda theo chu kỳ định sẵn.
 
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
+![Rule EventBridge đã được tạo](/images/aurora-time/eventbridge-rule-created.png)
 
-Chúc mừng bạn đã tạo thành công S3 interface endpoint. Ở bước tiếp theo, chúng ta sẽ kiểm tra interface endpoint.
+Chúc mừng bạn đã tạo thành công luật EventBridge cho Aurora Time. Ở bước tiếp theo, bạn sẽ kiểm thử luồng nhắc việc end‑to‑end: tạo event có reminder, chờ schedule chạy và xác nhận email được gửi đến hộp thư người dùng.

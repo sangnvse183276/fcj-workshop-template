@@ -5,9 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 Databricks modernizes healthcare data on AWS
 by Venkat Viswanathan, Amandip Kaler, Harrison Holstein, and Vaishali Gohel on 13 MAY 2025 in Amazon AppFlow, Amazon Bedrock, Amazon EC2, Amazon Kinesis, Amazon Nova, Amazon Simple Storage Service (S3), Amazon Titan, AWS Database Migration Service, AWS Glue, AWS Identity and Access Management (IAM), AWS Key Management Service, AWS Marketplace, AWS PrivateLink, AWS Trainium, Graviton Permalink  Comments  Share

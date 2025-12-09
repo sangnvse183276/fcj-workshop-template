@@ -1,95 +1,105 @@
 ---
-title : "VPC Endpoint Policies"
+title : "Chính sách bảo mật & phân quyền API"
 date : "2025-09-09T19:53:52+07:00"
 weight : 5
 chapter : false
 pre : " <b> 5.5 </b> "
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+Khi triển khai Aurora Time, ngoài việc xác thực bằng **Amazon Cognito**, bạn còn có thể áp dụng **chính sách bảo mật bổ sung** để kiểm soát chi tiết quyền truy cập vào API và dữ liệu.  
+Tương tự như VPC Endpoint Policy với S3, ở đây chúng ta sẽ dùng **Cognito groups + API Gateway + IAM** để phân quyền chi tiết (fine‑grained authorization) cho các thao tác nhạy cảm, ví dụ xoá sự kiện (DELETE).[web:299][web:104]
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+Trong phần này, bạn sẽ:
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
++ Tạo hai nhóm quyền trong Cognito: `user` và `admin`.  
++ Giữ cho các API đọc/tạo sự kiện mở cho cả hai nhóm, nhưng chỉ cho phép nhóm `admin` gọi endpoint **DELETE /events/{id}**.  
++ Kiểm thử để xác nhận user thường bị từ chối, còn admin thực hiện được.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+![Minh hoạ phân quyền theo nhóm Cognito](/images/aurora-time/api-policy-architecture.png)
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+---
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+#### Bước 1 – Tạo Cognito groups cho Aurora Time
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+1. Mở **Cognito console**, chọn **User pool** của Aurora Time.
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+2. Trong menu bên trái, chọn **Groups** → **Create group**:
+   + Tạo group `user` (mặc định cho người dùng bình thường).  
+   + Tạo group `admin` (dành cho tài khoản quản trị, được phép thao tác nhạy cảm như xoá sự kiện).
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+3. Gán:
+   + Tài khoản test thứ nhất vào group `user`.  
+   + Tài khoản test thứ hai vào group `admin`.
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+![Cognito groups](/images/aurora-time/cognito-groups.png)
 
-3. Tạo bucket thành công.
+---
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+#### Bước 2 – Cấu hình API Gateway sử dụng Cognito Authorizer
 
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
+1. Mở **Amazon API Gateway console**, chọn REST API Aurora Time.
 
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
+2. Trong tab **Authorizers**:
+   + Tạo (hoặc kiểm tra) authorizer kiểu **Cognito** trỏ tới User Pool Aurora Time.  
+   + Đảm bảo các method như `GET /events`, `POST /events`, `DELETE /events/{id}` đều sử dụng authorizer này.[web:104][web:308]
 
+3. Ở method **DELETE /events/{id}**, vào **Method Request**:
+   + Đảm bảo **Authorization** = Cognito authorizer.  
+   + (Tuỳ chọn) Khai báo thêm `Authorization Scopes` nếu bạn dùng OAuth 2.0 scopes cho admin.
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
+![API Gateway – DELETE /events/{id}](/images/aurora-time/apigw-delete-event.png)
+
+---
+
+#### Bước 3 – Hạn chế quyền xoá sự kiện cho admin
+
+Để chỉ cho phép nhóm `admin` gọi `DELETE /events/{id}`, bạn có thể dùng một trong hai cách:
+
+1. **Kiểm tra claim `cognito:groups` trong Lambda**  
+
+   Trong hàm Lambda xử lý xoá sự kiện, đọc JWT từ `event.requestContext.authorizer.claims`:
+
+const claims = event.requestContext.authorizer.claims;
+const groups = claims['cognito:groups'] || '';
+
+if (!groups.includes('admin')) {
+return {
+statusCode: 403,
+body: JSON.stringify({ message: 'Access denied: admin only.' })
+};
 }
-```
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+   Nếu user không thuộc group `admin`, Lambda trả về 403 và không gọi DynamoDB xoá dữ liệu.  
+   Cách này đơn giản, dễ hiểu và phù hợp với kiến trúc Lambda backend hiện tại.[web:299]
 
-Cấu hình policy thành công.
+2. **(Nâng cao) Dùng IAM policy/authorizer tuỳ chỉnh**  
 
-![success](/images/5-Workshop/5.5-Policy/success.png)
+   Bạn có thể viết Lambda authorizer hoặc IAM policy chi tiết hơn để API Gateway chỉ forward request tới Lambda khi claim `cognito:groups` là `admin`. Điều này giống với mô hình fine‑grained authorization mà AWS gợi ý trong các bài blog về Cognito + API Gateway + IAM.[web:299][web:310]
 
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+---
 
-```
-aws s3 ls s3://<yourbucketname>
-```
+#### Bước 4 – Kiểm thử phân quyền
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+1. **Đăng nhập bằng user thường (group `user`):**
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
+   + Vào Aurora Time, lấy token Cognito, gọi API `GET /events` (qua frontend hoặc Postman) → **thành công**.  
+   + Thử xoá sự kiện bất kỳ qua `DELETE /events/{id}` → nhận **403 Forbidden** với thông báo “Access denied: admin only”.
 
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
+![User thường bị chặn khi xoá sự kiện](/images/aurora-time/delete-event-user-fail.png)
 
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+2. **Đăng nhập bằng admin (group `admin`):**
 
-![success](/images/5-Workshop/5.5-Policy/test2.png)
+   + Gọi lại `DELETE /events/{id}` với cùng sự kiện → request **thành công**, item bị xoá khỏi DynamoDB.  
+   + Kiểm tra bảng `AuroraTimeEvents` trong DynamoDB để xác nhận sự kiện không còn tồn tại.
 
-Thao tác này được cho phép bởi VPC endpoint policy.
+![Admin xoá sự kiện thành công](/images/aurora-time/delete-event-admin-success.png)
 
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
+---
 
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
+Trong phần này, bạn đã:
 
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
++ Thiết lập **nhóm quyền** trong Cognito (`user`, `admin`).  
++ Kết hợp **Cognito Authorizer + Lambda** để áp dụng phân quyền chi tiết cho API Aurora Time.  
++ Chứng minh được rằng cùng một endpoint nhưng kết quả khác nhau tuỳ theo group của người dùng, tương tự như cách VPC Endpoint Policy giới hạn bucket S3 trong workshop S3/VPC Endpoint.
 
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
-
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
-
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+Cách tiếp cận này giúp Aurora Time tuân theo nguyên tắc **least privilege** và dễ mở rộng khi bạn thêm các vai trò mới (ví dụ: `viewer`, `premium`, …) trong tương lai.[web:299][web:304]

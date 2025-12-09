@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+
 
 During my internship at **[Company/Organization Name]** from **[start During the internship at AWS from 08/09/2025 to 24/12/2025, I had the opportunity to learn, practice, and apply the knowledge acquired at university in a real working environment.
 I participated in Aurora Time, a time-management application built on AWS serverless architecture that helps individual users easily schedule events, set reminders, and manage personal habits with a simple, low-cost interface, thereby improving my skills in AWS architecture analysis & design, serverless backend development (Lambda, API Gateway, DynamoDB), cloud infrastructure deployment (IAM, VPC, EventBridge, CloudFront, Amplify), teamwork, and communication in a project environment. 

@@ -5,9 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 Unhoused individuals gain shelter, prove their identity using AWS-powered solution Kiip
 by Noah Harlan and Jessie Metcalf on 03 NOV 2023 in Amazon Bedrock, Amazon Chime, Amazon Cognito, Amazon Simple Storage Service (S3), AWS Key Management Service, AWS Lambda, AWS Marketplace, Customer Solutions, Nonprofit, Public Sector, State or Local Government Permalink  Share

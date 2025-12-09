@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 Trong suốt thời gian thực tập tại AWS từ 08/09/2025 đến 24/12/2025, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
 Tôi đã tham giaAurora Time là một ứng dụng quản lý thời gian chạy trên kiến trúc serverless của AWS, giúp người dùng cá nhân dễ dàng lên lịch sự kiện, đặt nhắc nhở và quản lý thói quen cá nhân với giao diện đơn giản, chi phí thấp , qua đó cải thiện kỹ năng  phân tích & thiết kế kiến trúc AWS, lập trình backend serverless (Lambda, API Gateway, DynamoDB), triển khai hạ tầng cloud (IAM, VPC, EventBridge,CloudFront, Amplify), làm việc nhóm và giao tiếp trong môi trường dự án..  
