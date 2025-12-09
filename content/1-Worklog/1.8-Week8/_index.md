@@ -22,7 +22,7 @@ pre: " <b> 1.8. </b> "
 | TUE | - Design high-level serverless architecture: API Gateway + Lambda + DynamoDB + EventBridge + SES + Cognito + Amplify + S3/CloudFront.- Draw architecture diagram and align with the “Solution Architecture” section of the proposal.                  | 04/11/2025 | 04/11/2025      | Proposal – Solution Architecture & AWS Services Used         |
 | WED | - DynamoDB data modeling: design tables/PK/SK for users, events, schedules, reminder rules (consider access patterns: list events, create/update/delete, query by date/user).- Document partition key/sort key choices and expected RCU/WCU patterns. | 05/11/2025 | 05/11/2025      | Proposal – Technical Implementation Plan (DynamoDB modeling) |
 | THU | - Define API contract for backend: list all REST endpoints (e.g. /events, /events/{id}, /reminders) with methods, request/response schema, error codes.- Map each endpoint to Lambda functions and identify required IAM permissions.                 | 06/11/2025 | 06/11/2025      | Proposal – AWS Lambda, API Gateway, DynamoDB roles           |
-| FRI | - Draft security and authentication design: Cognito user pool, auth flow, JWT usage, integration with API Gateway authorizer.- Summarize design decisions into a short “Architecture Design v1” document (PDF/Markdown) for mentor review.            | 07/11/2025 | 07/11/2025      | Proposal – Cognito, Security, ROI & Risks sections           |
+| FRI | - Attend an AWS event | 07/11/2025 | 07/11/2025      |         |
 ### Week 8 Achievements:
 
 * Understood what AWS is and mastered the basic service groups: 

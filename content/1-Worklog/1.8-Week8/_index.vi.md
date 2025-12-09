@@ -22,7 +22,7 @@ pre: " <b> 1.8. </b> "
 | Thứ Ba  | - Thiết kế kiến trúc serverless mức cao: API Gateway + Lambda + DynamoDB + EventBridge + SES + Cognito + Amplify + S3/CloudFront. - Vẽ sơ đồ kiến trúc và căn chỉnh với phần “Solution Architecture” của bản đề xuất.                                             | 04/11/2025   | 04/11/2025      | Đề xuất – Solution Architecture & AWS Services Used         |
 | Thứ Tư  | - Mô hình dữ liệu DynamoDB: thiết kế bảng/PK/SK cho users, events, schedules, reminder rules (cân nhắc các pattern truy cập: liệt kê sự kiện, tạo/cập nhật/xóa, truy vấn theo ngày/người dùng). - Ghi lại lựa chọn partition key/sort key và mẫu RCU/WCU kỳ vọng. | 05/11/2025   | 05/11/2025      | Đề xuất – Technical Implementation Plan (DynamoDB modeling) |
 | Thứ Năm | - Định nghĩa hợp đồng API cho backend: liệt kê mọi REST endpoint (ví dụ: /events, /events/{id}, /reminders) kèm phương thức, schema request/response, mã lỗi. - Ánh xạ từng endpoint sang các hàm Lambda và xác định quyền IAM cần thiết.                         | 06/11/2025   | 06/11/2025      | Đề xuất – AWS Lambda, API Gateway, DynamoDB roles           |
-| Thứ Sáu | - Phác thảo thiết kế bảo mật và xác thực: Cognito user pool, luồng đăng nhập, sử dụng JWT, tích hợp với API Gateway authorizer. - Tóm tắt quyết định thiết kế thành tài liệu “Architecture Design v1” (PDF/Markdown) để mentor review.                            | 07/11/2025   | 07/11/2025      | Đề xuất – các phần Cognito, Security, ROI & Risks           |
+| Thứ Sáu |  Tham gia một sự kiện AWS                             | 07/11/2025   | 07/11/2025      |  |
 
 ### Kết quả đạt được tuần 8:
 

@@ -48,7 +48,7 @@ Dưới đây là **3 tuần** Aurora Time project theo đúng format Day/Task/S
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ----- | ---------- | ---------------- | ------------------ |
-| MON | - Implement full set of Lambda functions for core features (CRUD for events, reminders, user settings, listing views by date/week/month).<br>- Standardize logging, error handling, and consistent API responses across all functions. | 01/12/2025 | 01/12/2025 | Proposal – AWS Lambda (business logic) |
+| MON | - Attend an AWS event . | 01/12/2025 | 01/12/2025 |  |
 | TUE | - Tune Lambda and DynamoDB: adjust memory, timeout, and concurrency; choose on‑demand vs provisioned RCU/WCU for tables.<br>- Enable CloudWatch metrics and alarms for Lambda errors/throttling and DynamoDB throttling. | 02/11/2025 | 02/11/2025 | Proposal – Technical Implementation Plan (System Optimization)[1] |
 | WED | - Harden security: refine IAM roles with least privilege for Lambda, EventBridge, SES, and DynamoDB.<br>- Secure API Gateway (Cognito authorizer, throttling) and set AWS Budgets alerts for the project account. | 03/11/2025 | 03/11/2025 | Proposal – Risks & Mitigation (cost overrun, failures)[1] |
 | THU | - Connect frontend (Amplify‑hosted app) to backend APIs: implement pages for login/sign‑up, schedule view, create/edit events, and reminder settings.<br>- Wire frontend to Cognito and API Gateway endpoints and test basic user flows. | 04/11/2025 | 04/11/2025 | Proposal – AWS Amplify, Key Features & Problem Statement |
