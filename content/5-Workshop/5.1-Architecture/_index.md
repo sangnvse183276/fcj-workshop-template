@@ -6,17 +6,14 @@ chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-{{% notice note %}}
-📋 **Overview:** This section describes the high-level architecture of the Aurora system and the authentication flow using Google OAuth 2.0 integrated with Amazon Cognito.
-{{% /notice %}}
+
 
 # 1. High-Level System Architecture
 
 The **Aurora** system is built entirely on a **Serverless architecture** on AWS, optimizing both scalability and operational cost.  
 It integrates with **Google Cloud Platform** to provide a seamless Single Sign-On (SSO) experience via Google authentication.
 
-![Aurora Architecture Diagram](images/architecture.png)  
-*(Note: Replace this placeholder diagram by placing your architecture image inside the `images` folder as `architecture.png`.)*
+![Aurora Architecture Diagram](/images/2-Proposal/aurora-architecture.jpeg)  
 
 ### Main Components:
 
